@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  get '/' => 'courses#index'
+  get '/courses' => 'courses#index'
+  get '/courses/new' => 'courses#new'
+  post '/courses' => 'courses#create'
+  get 'courses/:id/edit' => 'courses#edit'
+  patch 'courses/:id' => 'courses#update'
+  delete 'courses/:id' => 'courses#destroy'
+  get '/courses/:id' => 'courses#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
