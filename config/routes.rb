@@ -9,6 +9,16 @@ Rails.application.routes.draw do
   patch 'courses/:id' => 'courses#update'
   delete 'courses/:id' => 'courses#destroy'
   get '/courses/:id' => 'courses#show'
+
+  get '/forecasts' => 'forecasts#index'
+  get '/forecasts/new' => 'forecasts#new'
+  post '/forecasts' => 'forecasts#create'
+  get '/forecasts/:id/edit' => 'forecasts#edit'
+  patch '/forecasts/:id' => 'forecasts#update'
+  delete '/forecasts/:id' => 'forecasts#destroy'
+  get '/forecasts/:id' => 'forecasts#show'
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
