@@ -18,7 +18,16 @@ Rails.application.routes.draw do
   delete '/forecasts/:id' => 'forecasts#destroy'
   get '/forecasts/:id' => 'forecasts#show'
 
+  get '/tee_times' => 'tee_times#index'
+  get '/tee_times/new' => 'tee_times#new'
+  post '/tee_times' => 'tee_times#create'
+  get '/tee_times/:id/edit' => 'tee_times#edit'
+  patch '/tee_times/:id' => 'tee_times#update'
+  delete '/tee_times/:id' => 'tee_times#destroy'
+  get 'tee_times/:id' => 'tee_times#show'
+
   
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
