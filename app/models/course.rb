@@ -4,4 +4,5 @@ class Course < ActiveRecord::Base
   has_many :forecasts
   has_many :comments
   has_many :images
+  
 end

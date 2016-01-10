@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
 
   def index
+    @courses = Course.all
   end
 
   def new
@@ -16,6 +17,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @course = Course.find_by(id: params[:id])
   end
 
   def destroy

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-
+  
   get '/' => 'courses#index'
   get '/courses' => 'courses#index'
   get '/courses/new' => 'courses#new'
@@ -18,13 +18,13 @@ Rails.application.routes.draw do
   delete '/forecasts/:id' => 'forecasts#destroy'
   get '/forecasts/:id' => 'forecasts#show'
 
-  get '/tee_times' => 'tee_times#index'
-  get '/tee_times/new' => 'tee_times#new'
-  post '/tee_times' => 'tee_times#create'
-  get '/tee_times/:id/edit' => 'tee_times#edit'
-  patch '/tee_times/:id' => 'tee_times#update'
-  delete '/tee_times/:id' => 'tee_times#destroy'
-  get 'tee_times/:id' => 'tee_times#show'
+  get '/teetimes' => 'tee_times#index'
+  get '/teetimes/new' => 'tee_times#new'
+  post '/teetimes' => 'tee_times#create'
+  get '/teetimes/:id/edit' => 'tee_times#edit'
+  patch '/teetimes/:id' => 'tee_times#update'
+  delete '/teetimes/:id' => 'tee_times#destroy'
+  get 'teetimes/:id' => 'tee_times#show'
 
   
 

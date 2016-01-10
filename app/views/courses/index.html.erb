@@ -1,0 +1,57 @@
+<body class="smoothscroll enable-animation">
+  <section class="page-header page-header-xs">
+    <div class="container">
+
+      <h1><strong>Tee Box</strong></h1>
+
+    </div>
+  </section>
+</body>
+
+<section>
+    <div class="container">
+        <% @courses.each do |course| %>  
+      <div class="row">
+      
+        <div class="col-lg-6 col-md-6 col-sm-6">
+
+        <h2>Golf Course: <%= course.biz_name %></h2>
+        <h4>Address: <%= course.e_address %></h4>
+        <h4>City, <%= course.e_city %></h4>
+        <h4>State, <%= course.e_state %></h4>
+        <h4>Zip code:<%= course.e_postal %></h4>
+        <h5>Contact: <%= course.biz_phone %></h5>
+
+        </div>   
+      </div>
+      <% end %>
+    </div>
+</section>
+
+<section>
+    
+
+            
+        <div class="col-lg-6 col-md-6 col-sm-6" id="map">
+          <div id="map-canvas">
+                
+          </div>
+
+        </div>
+ 
+</section>
+
+          
+
+
+
+
+
+
+
+
+  </div>
+</body>
+<script async defer 
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPnJdUCTaDoPlmksohRoP36LqmWpVI2b4&callback=initMap">
+  </script>
