@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   
   get '/' => 'courses#index'
   get '/courses' => 'courses#index'
@@ -26,7 +27,13 @@ Rails.application.routes.draw do
   delete '/teetimes/:id' => 'tee_times#destroy'
   get 'teetimes/:id' => 'tee_times#show'
 
-  
+  namespace :api do
+    namespace :v1 do
+      get 'teetimes' => 'tee_times#index'
+    end
+  end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

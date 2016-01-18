@@ -1,1 +1,19 @@
-<h1>Tee Show</h1>
+<h1>Booked!</h1>
+<% @tee_time.course_id %>
+<h3>Your tee time has been reserved for <%= @tee_time.start_time %></h3>
+<h3>at <%= @tee_time.course.biz_name %></h3>
+<h3>for <h2><%= @tee_time.price %></h2></h3>
+<h3>Number of guests: <%= @tee_time.num_of_guests %></h3>
+<%= link_to "Edit number of guests", "/teetimes/#{@tee_time.id}/edit", class: "btn btn-success" %>
+<div>
+<%= link_to "Book Another Tee Time?", "/courses/#{@tee_time.course_id}", class: "btn btn-success" %>
+</div>
+<div>
+<%= link_to "Back to Home", "/", class: "btn btn-success" %>
+</div>
+
+
+
+
+
+

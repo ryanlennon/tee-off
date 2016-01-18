@@ -1,1 +1,9 @@
-<h1>Tee Edit</h1>
+<h1>Guest Edit</h1>
+<%= form_tag "/teetimes/#{@tee_time.id}", method: :patch do %>
+  <div>
+    <%= label_tag :num_of_guests %>
+    <%= text_field_tag :num_of_guests, @tee_time.num_of_guests %> 
+    <%= submit_tag "Update Reservation" %>
+  </div>
+    
+  <% end %>

@@ -1,412 +1,301 @@
-<!DOCTYPE html>
-<html> 
-  <head>
-    <meta charset="utf-8" />
-    <title>Courses</title>
-    
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
-
-    <!-- CORE CSS -->
-    <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    
-    <!-- THEME CSS -->
-    <link href="/assets/css/essentials.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/css/layout.css" rel="stylesheet" type="text/css" />
-
-    <!-- PAGE LEVEL SCRIPTS -->
-    <link href="/assets/css/header-1.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/css/layout-shop.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
-  </head>
-
-  <body class="smoothscroll enable-animation">
-
-  <div id="wrapper">
+ <section class="page-header page-header-xs">
 
 
-      <section class="page-header page-header-xs">
-        <div class="container">
+  <h1><%= @course.biz_name %></h1>
 
-          <h1>Single Courses</h1>
+</section>
+<div ng-app="app">
+  <div ng-controller="courseShow">
+    <!-- -->
+    <section>
+      <div class="container">
 
-        </div>
-      </section>
-  
-      <!-- -->
-      <section>
-        <div class="container">
+
+
+
+
+
+        <div class="row">
+
+          <!-- RIGHT -->
+          <div class="col-lg-9 col-md-9 col-sm-9">
+
+            <div class="row">
+
+
+              <!-- IMAGE -->
+              <div class="col-lg-6 col-sm-6">
+
+                <div class="thumbnail relative margin-bottom-3" >
+
+                  <figure id="zoom-primary" class="zoom" data-mode="mouseover">
+                    <img class="img-responsive" src="/assets/images/demo/1200x800/greenflag.jpg" width="1200" height="1500" alt="This is the product title" />
+                  </figure>
+
+                </div>
+
+
+
+              </div>
+              <!-- /IMAGE -->
+
+              <!-- ITEM DESC -->
+              <div class="col-lg-6 col-sm-6">
+
+                <p><%= @weather.html_safe %></p>
+
+              </div>
+              <!-- /ITEM DESC -->
+
+            </div>
+
+
+
+            <ul id="myTab" class="nav nav-tabs nav-top-border margin-top-80" role="tablist">
+              <li role="presentation" class="active"><a href="#description" role="tab" data-toggle="tab">Tee Times</a></li>
+              <li role="presentation"><a href="#specs" role="tab" data-toggle="tab">Specifications</a></li>
+              <li role="presentation"><a href="#reviews" role="tab" data-toggle="tab">Reviews (2)</a></li>
+            </ul>
+
+
+            <div class="tab-content padding-top-20">
+              <!-- DESCRIPTION -->
+              <div role="tabpanel" class="tab-pane fade in active" id="description"> 
+                <div ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>
+
+
+
+               <!--                         <table>
+                  <% @course.tee_time_slots.each_with_index do |tee_time_slot, index| %>
+
+                    <th><a href="/teetimes/<%=@course.id%>">Tee time <%= index + 1 %></a></th>
+                    <tr>
+                    <td> <%= tee_time_slot %> </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <em><%= @course.tee_time_slot_message(tee_time_slot) %></em> 
+                          <% unless @course.tee_time_taken?(tee_time_slot) %>
+                            <%= form_tag "/teetimes", method: :post do %>
+                              <%= hidden_field_tag :course_id, @course.id %>
+                              <%= hidden_field_tag :user_id, current_user.id %>
+                              <%= hidden_field_tag :tee_time_slot, tee_time_slot %>
+                              <%= label_tag :num_of_guests %>
+                              <div>
+                              <%= text_field_tag :num_of_guests %>
+                              </div>
+                              <div>
+                              <%= submit_tag "Book Tee Time!"%>
+                              </div>
+                            <% end %>
+                          <% else %>
+                            <br>
+                            <br>
+                            <br>
+                          <% end %>
+                        </td>
+
+                      </tr>
+                    
+                  <% end %>
+                </table> -->
           
-          <div class="row">
-
-            <!-- RIGHT -->
-            <div class="col-lg-9 col-md-9 col-sm-9">
-
-              <div class="row">
-              
-                <!-- IMAGE -->
-                <div class="col-lg-6 col-sm-6">
-                  
-                  <div class="thumbnail relative margin-bottom-3">
-
-                    <!-- 
-                      IMAGE ZOOM 
-                      
-                      data-mode="mouseover|grab|click|toggle"
-                    -->
-                    <figure id="zoom-primary" class="zoom" data-mode="mouseover">
-                      <!-- 
-                        zoom buttton
-                        
-                        positions available:
-                          .bottom-right
-                          .bottom-left
-                          .top-right
-                          .top-left
-                      -->
-                      <a class="lightbox bottom-right" href="/assets/images/demo/shop/products/1000x1500/p5.jpg" data-plugin-options='{"type":"image"}'><i class="glyphicon glyphicon-search"></i></a>
-
-                      <!-- 
-                        image 
-                        
-                        Extra: add .image-bw class to force black and white!
-                      -->
-                      <img class="img-responsive" src="/assets/images/demo/shop/products/1000x1500/p5.jpg" width="1200" height="1500" alt="This is the product title" />
-                    </figure>
-
-                  </div>
-
-                  <!-- Thumbnails (required height:100px) -->
-                  <div data-for="zoom-primary" class="zoom-more owl-carousel owl-padding-3 featured" data-plugin-options='{"singleItem": false, "autoPlay": false, "navigation": true, "pagination": false}'>
-                    <a class="thumbnail active" href="/assets/images/demo/shop/products/1000x1500/p5.jpg">
-                      <img src="/assets/images/demo/shop/products/100x100/p5.jpg" height="100" alt="" />
-                    </a>
-                    <a class="thumbnail" href="/assets/images/demo/shop/products/1000x1500/p6.jpg">
-                      <img src="/assets/images/demo/shop/products/100x100/p6.jpg" height="100" alt="" />
-                    </a>
-                    <a class="thumbnail" href="/assets/images/demo/shop/products/1000x1500/p7.jpg">
-                      <img src="/assets/images/demo/shop/products/100x100/p7.jpg" height="100" alt="" />
-                    </a>
-                    <a class="thumbnail" href="/assets/images/demo/shop/products/1000x1500/p8.jpg">
-                      <img src="/assets/images/demo/shop/products/100x100/p8.jpg" height="100" alt="" />
-                    </a>
-                    <a class="thumbnail" href="/assets/images/demo/shop/products/1000x1500/p9.jpg">
-                      <img src="/assets/images/demo/shop/products/100x100/p9.jpg" height="100" alt="" />
-                    </a>
-                    <a class="thumbnail" href="/assets/images/demo/shop/products/1000x1500/p10.jpg">
-                      <img src="/assets/images/demo/shop/products/100x100/p10.jpg" height="100" alt="" />
-                    </a>
-                    <a class="thumbnail" href="/assets/images/demo/shop/products/1000x1500/p11.jpg">
-                      <img src="/assets/images/demo/shop/products/100x100/p11.jpg" height="100" alt="" />
-                    </a>
-                  </div>
-                  <!-- /Thumbnails -->
-
-                </div>
-                <!-- /IMAGE -->
-
-                <!-- ITEM DESC -->
-                <div class="col-lg-6 col-sm-6">
-
-                  <!-- buttons -->
-                  <div class="pull-right">
-                    <!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
-                    <a class="btn btn-default add-wishlist" href="#" data-item-id="1" data-toggle="tooltip" title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
-                    <a class="btn btn-default add-compare" href="#" data-item-id="1" data-toggle="tooltip" title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>
-                  </div>
-                  <!-- /buttons -->
-
-                  
-
-                  <!-- short description -->
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <!-- /short description -->
-
-
-                  <hr />
-
-                  <!-- FORM -->
-                  <form class="clearfix form-inline nomargin" method="get" action="shop-cart.html">
-                    <input type="hidden" name="product_id" value="1" />
-
-                    <!-- see assets/js/view/demo.shop.js -->
-                    <input type="hidden" id="color" name="color" value="yellow" />
-                    <input type="hidden" id="qty" name="qty" value="1" />
-                    <input type="hidden" id="size" name="size" value="5" />
-                    <!-- see assets/js/view/demo.shop.js -->
-
-                    <div class="btn-group pull-left product-opt-color">
-                      <button type="button" class="btn btn-default dropdown-toggle product-color-dd noradius" data-toggle="dropdown">&nbsp;
-                        <span class="caret"></span> 
-                        <span id="product-selected-color" class="tag shop-color" style="background-color:#F0E68C"></span>
-                      </button>
-
-                      
-                      <ul id="product-color-dd" class="dropdown-menu clearfix" role="menu">
-                        
-                        
-                    </div><!-- /btn-group -->
-
-                    
-                  
-
-                    <button class="btn btn-primary pull-left product-add-cart noradius">ADD TO CART</button>
-                  
-                  </form>
-                  <!-- /FORM -->
-
-
-                  <hr />
-
-                  <small class="text-muted">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, 
-                    commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim 
-                    massa, sodales tempor convallis et.
-                  </small>
-
-                  <hr />
-
-                  <!-- Share -->
-                  <div class="pull-right">
-
-                    <a href="#" class="social-icon social-icon-sm social-icon-transparent social-facebook pull-left" data-toggle="tooltip" data-placement="top" title="Facebook">
-                      <i class="icon-facebook"></i>
-                      <i class="icon-facebook"></i>
-                    </a>
-
-                    <a href="#" class="social-icon social-icon-sm social-icon-transparent social-twitter pull-left" data-toggle="tooltip" data-placement="top" title="Twitter">
-                      <i class="icon-twitter"></i>
-                      <i class="icon-twitter"></i>
-                    </a>
-
-                    <a href="#" class="social-icon social-icon-sm social-icon-transparent social-gplus pull-left" data-toggle="tooltip" data-placement="top" title="Google plus">
-                      <i class="icon-gplus"></i>
-                      <i class="icon-gplus"></i>
-                    </a>
-
-                    <a href="#" class="social-icon social-icon-sm social-icon-transparent social-linkedin pull-left" data-toggle="tooltip" data-placement="top" title="Linkedin">
-                      <i class="icon-linkedin"></i>
-                      <i class="icon-linkedin"></i>
-                    </a>
-
-                  </div>
-                  <!-- /Share -->
-
-
-                  <!-- rating -->
-                  <div class="rating rating-4 size-13 margin-top-10 width-100"><!-- rating-0 ... rating-5 --></div>
-                  <!-- /rating -->
-
-                </div>
-                <!-- /ITEM DESC -->
-
               </div>
 
-
-
-              <ul id="myTab" class="nav nav-tabs nav-top-border margin-top-80" role="tablist">
-                <li role="presentation" class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
-                <li role="presentation"><a href="#specs" role="tab" data-toggle="tab">Specifications</a></li>
-                <li role="presentation"><a href="#reviews" role="tab" data-toggle="tab">Reviews (2)</a></li>
-              </ul>
-
-
-              <div class="tab-content padding-top-20">
-                <!-- DESCRIPTION -->
-                <div role="tabpanel" class="tab-pane fade in active" id="description">
-                  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Aliquam fermentum commodo magna, id pretium nisi elementum at. Nulla molestie, ligula in fringilla rhoncus, risus leo dictum est, nec egestas nunc sem tincidunt turpis. Sed posuere consectetur est at lobortis.</p>
-                  <p>Donec blandit ultrices condimentum. Aliquam fermentum commodo magna, id pretium nisi elementum at. Nulla molestie, ligula in fringilla rhoncus, risus leo dictum est, nec egestas nunc sem tincidunt turpis. Sed posuere consectetur est at lobortis.</p>
-                </div>
-                
-                <!-- SPECIFICATIONS -->
-                <div role="tabpanel" class="tab-pane fade" id="specs">
-                  <div class="table-responsive">
-                    <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th>Course Type</th>
-                          <th><%= @course.c_type %></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Course Season</td>
-                          <td><%= @course.c_season %></td>
-                        </tr>
-                        <tr>
-                          <td>Guest Policy</td>
-                          <td><%= @course.guest_policy %></td>
-                        </tr>
-                        <tr>
-                          <td>Dress Code</td>
-                          <td><%= @course.dress_code %></td>
-                        </tr>
-                        <tr>
-                          <td>Green fees</td>
-                          <td><%= @course.green_fees %></td>
-                        </tr>
-                        <tr>
-                          <td>Weekend rates</td>
-                          <td><%= @course.weekend_rates %></td>
-                        </tr>
-                        <tr>
-                          <td>Advanced tee time reservations</td>
-                          <td><%= @course.adv_tee %></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                
-                <!-- REVIEWS -->
-                <div role="tabpanel" class="tab-pane fade" id="reviews">
-                  <!-- REVIEW ITEM -->
-                  <div class="block margin-bottom-60">
-
-                    <span class="user-avatar"><!-- user-avatar -->
-                      <img class="pull-left media-object" src="/assets/images/avatar2.jpg" width="64" height="64" alt="">
-                    </span>
-
-                    <div class="media-body">
-                      <h4 class="media-heading size-14">
-                        John Doe &ndash; 
-                        <span class="text-muted">June 29, 2014 - 11:23</span> &ndash;
-                        <span class="size-14 text-muted"><!-- stars -->
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star-o"></i>
-                        </span>
-                      </h4>
-                      
-                      <p>
-                        Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque.
-                      </p>
-
-                    </div>
-
-                  </div>
-                  <!-- /REVIEW ITEM -->
-
-                  <!-- REVIEW ITEM -->
-                  <div class="block margin-bottom-60">
-
-                    <span class="user-avatar"><!-- user-avatar -->
-                      <img class="pull-left media-object" src="assets/images/avatar2.jpg" width="64" height="64" alt="">
-                    </span>
-
-                    <div class="media-body">
-                      <h4 class="media-heading size-14">
-                        John Doe &ndash; 
-                        <span class="text-muted">June 29, 2014 - 11:23</span> &ndash;
-                        <span class="size-14 text-muted"><!-- stars -->
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star-o"></i>
-                          <i class="fa fa-star-o"></i>
-                        </span>
-                      </h4>
-                      
-                      <p>
-                        Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque.
-                      </p>
-
-                    </div>
-
-                  </div>
-                  <!-- /REVIEW ITEM -->
-
-
-                  <!-- REVIEW FORM -->
-                  <h4 class="page-header margin-bottom-40">ADD A REVIEW</h4>
-                  <form method="post" action="#" id="form">
-                    
-                    <div class="row margin-bottom-10">
-                      
-                      <div class="col-md-6 margin-bottom-10">
-                        <!-- Name -->
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Name *" maxlength="100" required="">
-                      </div>
-                      
-                      <div class="col-md-6">
-                        <!-- Email -->
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email *" maxlength="100" required="">
-                      </div>
-                      
-                    </div>
-                    
-                    <!-- Comment -->
-                    <div class="margin-bottom-30">
-                      <textarea name="text" id="text" class="form-control" rows="6" placeholder="Comment" maxlength="1000"></textarea>
-                    </div>
-
-                    <!-- Stars -->
-                    <div class="product-star-vote clearfix">
-
-                      <label class="radio pull-left">
-                        <input type="radio" name="product-review-vote" value="1" />
-                        <i></i> 1 Star
-                      </label>
-
-                      <label class="radio pull-left">
-                        <input type="radio" name="product-review-vote" value="2" />
-                        <i></i> 2 Stars
-                      </label>
-
-                      <label class="radio pull-left">
-                        <input type="radio" name="product-review-vote" value="3" />
-                        <i></i> 3 Stars
-                      </label>
-
-                      <label class="radio pull-left">
-                        <input type="radio" name="product-review-vote" value="4" />
-                        <i></i> 4 Stars
-                      </label>
-
-                      <label class="radio pull-left">
-                        <input type="radio" name="product-review-vote" value="5" />
-                        <i></i> 5 Stars
-                      </label>
-
-                    </div>
-
-                    <!-- Send Button -->
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Send Review</button>
-                    
-                  </form>
-                  <!-- /REVIEW FORM -->
-
+              <!-- SPECIFICATIONS -->
+              <div role="tabpanel" class="tab-pane fade" id="specs">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Course Type</th>
+                        <th><%= @course.c_type %></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Course Season</td>
+                        <td><%= @course.c_season %></td>
+                      </tr>
+                      <tr>
+                        <td>Guest Policy</td>
+                        <td><%= @course.guest_policy %></td>
+                      </tr>
+                      <tr>
+                        <td>Dress Code</td>
+                        <td><%= @course.dress_code %></td>
+                      </tr>
+                      <tr>
+                        <td>Green fees</td>
+                        <td><%= @course.green_fees %></td>
+                      </tr>
+                      <tr>
+                        <td>Weekend rates</td>
+                        <td><%= @course.weekend_rates %></td>
+                      </tr>
+                      <tr>
+                        <td>Advanced tee time reservations</td>
+                        <td><%= @course.adv_tee %></td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
+              <!-- REVIEWS -->
+              <div role="tabpanel" class="tab-pane fade" id="reviews">
+                <!-- REVIEW ITEM -->
+                <div class="block margin-bottom-60">
 
-              <hr class="margin-top-80 margin-bottom-80" />
+                  <span class="user-avatar"><!-- user-avatar -->
+                    <img class="pull-left media-object" src="/assets/images/avatar2.jpg" width="64" height="64" alt="">
+                  </span>
+
+                  <div class="media-body">
+                    <h4 class="media-heading size-14">
+                      John Doe &ndash; 
+                      <span class="text-muted">June 29, 2014 - 11:23</span> &ndash;
+                      <span class="size-14 text-muted"><!-- stars -->
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                      </span>
+                    </h4>
+
+                    <p>
+                      Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque.
+                    </p>
+
+                  </div>
+
+                </div>
+                <!-- /REVIEW ITEM -->
+
+                <!-- REVIEW ITEM -->
+                <div class="block margin-bottom-60">
+
+                  <span class="user-avatar"><!-- user-avatar -->
+                    <img class="pull-left media-object" src="assets/images/avatar2.jpg" width="64" height="64" alt="">
+                  </span>
+
+                  <div class="media-body">
+                    <h4 class="media-heading size-14">
+                      John Doe &ndash; 
+                      <span class="text-muted">June 29, 2014 - 11:23</span> &ndash;
+                      <span class="size-14 text-muted"><!-- stars -->
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                      </span>
+                    </h4>
+
+                    <p>
+                      Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque.
+                    </p>
+
+                  </div>
+
+                </div>
+                <!-- /REVIEW ITEM -->
 
 
+                <!-- REVIEW FORM -->
+                <h4 class="page-header margin-bottom-40">ADD A REVIEW</h4>
+                <form method="post" action="#" id="form">
+
+                  <div class="row margin-bottom-10">
+
+                    <div class="col-md-6 margin-bottom-10">
+                      <!-- Name -->
+                      <input type="text" name="name" id="name" class="form-control" placeholder="Name *" maxlength="100" required="">
+                    </div>
+
+                    <div class="col-md-6">
+                      <!-- Email -->
+                      <input type="email" name="email" id="email" class="form-control" placeholder="Email *" maxlength="100" required="">
+                    </div>
+
+                  </div>
+
+                  <!-- Comment -->
+                  <div class="margin-bottom-30">
+                    <textarea name="text" id="text" class="form-control" rows="6" placeholder="Comment" maxlength="1000"></textarea>
+                  </div>
+
+                  <!-- Stars -->
+                  <div class="product-star-vote clearfix">
+
+                    <label class="radio pull-left">
+                      <input type="radio" name="product-review-vote" value="1" />
+                      <i></i> 1 Star
+                    </label>
+
+                    <label class="radio pull-left">
+                      <input type="radio" name="product-review-vote" value="2" />
+                      <i></i> 2 Stars
+                    </label>
+
+                    <label class="radio pull-left">
+                      <input type="radio" name="product-review-vote" value="3" />
+                      <i></i> 3 Stars
+                    </label>
+
+                    <label class="radio pull-left">
+                      <input type="radio" name="product-review-vote" value="4" />
+                      <i></i> 4 Stars
+                    </label>
+
+                    <label class="radio pull-left">
+                      <input type="radio" name="product-review-vote" value="5" />
+                      <i></i> 5 Stars
+                    </label>
+
+                  </div>
+
+                  <!-- Send Button -->
+                  <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Send Review</button>
+
+                </form>
+                <!-- /REVIEW FORM -->
+
+              </div>
             </div>
 
 
-            <!-- LEFT -->
-            <div class="col-lg-3 col-md-3 col-sm-3" id="map">
-              <div id="map-canvas">
-                
-              </div>
-             
+            <hr class="margin-top-80 margin-bottom-80" />
 
-              
-            </div>
 
           </div>
-          
-        </div>
-      </section>
-      <!-- / -->
 
-    </div>
-    <!-- /wrapper -->
-  </body>
+
+          <!-- LEFT -->
+          <div class="col-lg-3 col-md-3 col-sm-3" >
+            <div id="map">
+
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</div>
+<!-- / -->
+
 
 <script async defer 
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPnJdUCTaDoPlmksohRoP36LqmWpVI2b4&callback=initMap">
-  </script>
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPnJdUCTaDoPlmksohRoP36LqmWpVI2b4&callback=initMap">
+</script>
+
+<!-- /wrapper -->
+
+

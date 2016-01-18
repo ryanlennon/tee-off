@@ -1,4 +1,4 @@
-<# encoding: UTF-8
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110153556) do
+ActiveRecord::Schema.define(version: 20160112024512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20160110153556) do
     t.string   "green_fees"
     t.string   "weekend_rates"
     t.string   "adv_tee"
+    t.string   "start_time"
+    t.string   "end_time"
   end
 
   create_table "forecasts", force: :cascade do |t|

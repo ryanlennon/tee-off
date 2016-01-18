@@ -1,57 +1,415 @@
 <body class="smoothscroll enable-animation">
-  <section class="page-header page-header-xs">
-    <div class="container">
 
-      <h1><strong>Tee Box</strong></h1>
-
-    </div>
-  </section>
-</body>
-
-<section>
-    <div class="container">
-        <% @courses.each do |course| %>  
-      <div class="row">
-      
-        <div class="col-lg-6 col-md-6 col-sm-6">
-
-        <h2>Golf Course: <%= course.biz_name %></h2>
-        <h4>Address: <%= course.e_address %></h4>
-        <h4>City, <%= course.e_city %></h4>
-        <h4>State, <%= course.e_state %></h4>
-        <h4>Zip code:<%= course.e_postal %></h4>
-        <h5>Contact: <%= course.biz_phone %></h5>
-
-        </div>   
-      </div>
-      <% end %>
-    </div>
-</section>
-
-<section>
-    
-
+  <!-- REVOLUTION SLIDER -->
+      <section id="slider" class="fullwidthbanner-container roundedcorners">
+        <!--
+          Navigation Styles:
+          
+            data-navigationStyle="" theme default navigation
             
-        <div class="col-lg-6 col-md-6 col-sm-6" id="map">
-          <div id="map-canvas">
-                
+            data-navigationStyle="preview1"
+            data-navigationStyle="preview2"
+            data-navigationStyle="preview3"
+            data-navigationStyle="preview4"
+            
+          Bottom Shadows
+            data-shadow="1"
+            data-shadow="2"
+            data-shadow="3"
+            
+          Slider Height (do not use on fullscreen mode)
+            data-height="300"
+            data-height="350"
+            data-height="400"
+            data-height="450"
+            data-height="500"
+            data-height="550"
+            data-height="600"
+            data-height="650"
+            data-height="700"
+            data-height="750"
+            data-height="800"
+        -->
+        <div class="fullscreenbanner" data-navigationStyle="preview4">
+          <ul class="hide">
+
+            <!-- SLIDE  -->
+            <li data-transition="random" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off" data-title="Slide title 1" data-thumb="/assets/images/demo/1200x800/Ramshill.jpg">
+
+              <img src="/assets/images/1x1.png" data-lazyload="/assets/images/demo/1200x800/Ramshill.jpg" alt="" data-bgfit="cover" data-bgposition="center bottom" data-bgrepeat="no-repeat" />
+
+              <div class="overlay dark-4"><!-- dark overlay [1 to 9 opacity] --></div>
+
+              <div class="tp-caption customin ltl tp-resizeme text_white"
+                data-x="center"
+                data-y="180"
+                data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                data-speed="800"
+                data-start="1000"
+                data-easing="easeOutQuad"
+                data-splitin="none"
+                data-splitout="none"
+                data-elementdelay="0.01"
+                data-endelementdelay="0.1"
+                data-endspeed="1000"
+                data-endeasing="Power4.easeIn" style="z-index: 10;">
+                <span class="weight-300">COURSES / SCORECARDS / PRICES / TEE TIMES</span>
+              </div>
+
+              <div class="tp-caption customin ltl tp-resizeme large_bold_white"
+                data-x="center"
+                data-y="230"
+                data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                data-speed="800"
+                data-start="1200"
+                data-easing="easeOutQuad"
+                data-splitin="none"
+                data-splitout="none"
+                data-elementdelay="0.01"
+                data-endelementdelay="0.1"
+                data-endspeed="1000"
+                data-endeasing="Power4.easeIn" style="z-index: 10;">
+                WELCOME TO TEEBOX
+              </div>
+
+              <div class="tp-caption customin ltl tp-resizeme small_light_white"
+                data-x="center"
+                data-y="350"
+                data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                data-speed="800"
+                data-start="1400"
+                data-easing="easeOutQuad"
+                data-splitin="none"
+                data-splitout="none"
+                data-elementdelay="0.01"
+                data-endelementdelay="0.1"
+                data-endspeed="1000"
+                data-endeasing="Power4.easeIn" style="z-index: 10; width: 750px; max-width: 750px; white-space: normal; text-align:center;">
+                Fabulas definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii propriae philosophia cu mea.
+              </div>
+
+              <div class="tp-caption customin ltl tp-resizeme"
+                data-x="center"
+                data-y="438"
+                data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                data-speed="800"
+                data-start="1550"
+                data-easing="easeOutQuad"
+                data-splitin="none"
+                data-splitout="none"
+                data-elementdelay="0.01"
+                data-endelementdelay="0.1"
+                data-endspeed="1000"
+                data-endeasing="Power4.easeIn" style="z-index: 10;">
+                <a href="/users/sign_up" class="btn btn-default btn-lg">
+                  <span>Sign-up on Teebox</span> 
+                </a>
+              </div>
+
+            </li>
+
+            <!-- SLIDE -->
+            <li data-transition="random" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off" data-title="Slide title 1" data-thumb="/assets/images/demo/1200x800/greenflag.jpg">
+
+              <img src="/assets/images/1x1.png" data-lazyload="/assets/images/demo/1200x800/greenflag.jpg" alt="" data-bgfit="cover" data-bgposition="center bottom" data-bgrepeat="no-repeat" />
+
+              <div class="overlay dark-4"><!-- dark overlay [1 to 9 opacity] --></div>
+
+              <div class="tp-caption customin ltl tp-resizeme text_white"
+                data-x="center"
+                data-y="180"
+                data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                data-speed="800"
+                data-start="1000"
+                data-easing="easeOutQuad"
+                data-splitin="none"
+                data-splitout="none"
+                data-elementdelay="0.01"
+                data-endelementdelay="0.1"
+                data-endspeed="1000"
+                data-endeasing="Power4.easeIn" style="z-index: 10;">
+                <span class="weight-300">DEVELOPMENT / MARKETING / DESIGN / PHOTO</span>
+              </div>
+
+              <div class="tp-caption customin ltl tp-resizeme large_bold_white"
+                data-x="center"
+                data-y="230"
+                data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                data-speed="800"
+                data-start="1200"
+                data-easing="easeOutQuad"
+                data-splitin="none"
+                data-splitout="none"
+                data-elementdelay="0.01"
+                data-endelementdelay="0.1"
+                data-endspeed="1000"
+                data-endeasing="Power4.easeIn" style="z-index: 10;">
+                WELCOME TO TEEBOX
+              </div>
+
+              <div class="tp-caption customin ltl tp-resizeme small_light_white"
+                data-x="center"
+                data-y="350"
+                data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                data-speed="800"
+                data-start="1400"
+                data-easing="easeOutQuad"
+                data-splitin="none"
+                data-splitout="none"
+                data-elementdelay="0.01"
+                data-endelementdelay="0.1"
+                data-endspeed="1000"
+                data-endeasing="Power4.easeIn" style="z-index: 10; width: 750px; max-width: 750px; white-space: normal; text-align:center;">
+                Fabulas definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii propriae philosophia cu mea.
+              </div>
+
+              <div class="tp-caption customin ltl tp-resizeme"
+                data-x="center"
+                data-y="438"
+                data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                data-speed="800"
+                data-start="1550"
+                data-easing="easeOutQuad"
+                data-splitin="none"
+                data-splitout="none"
+                data-elementdelay="0.01"
+                data-endelementdelay="0.1"
+                data-endspeed="1000"
+                data-endeasing="Power4.easeIn" style="z-index: 10;">
+                <a href="/users/sign_in" class="btn btn-default btn-lg">
+                  <span>Sign-in</span> 
+                </a>
+              </div>
+
+            </li>
+
+            <!-- SLIDE  -->
+            <li data-transition="random" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off" data-title="Slide title 3" data-thumb="/assets/images/demo/1200x800/teebox2.jpg">
+
+              <img src="/assets/images/1x1.png" data-lazyload="/assets/images/demo/1200x800/teebox2.jpg" alt="" data-bgfit="cover" data-bgposition="center bottom" data-bgrepeat="no-repeat" />
+
+              <div class="overlay dark-4"><!-- dark overlay [1 to 9 opacity] --></div>
+
+              <div class="tp-caption very_large_text lfb ltt tp-resizeme"
+                data-x="right" data-hoffset="-100"
+                data-y="center" data-voffset="-100"
+                data-speed="600"
+                data-start="800"
+                data-easing="Power4.easeOut"
+                data-splitin="none"
+                data-splitout="none"
+                data-elementdelay="0.01"
+                data-endelementdelay="0.1"
+                data-endspeed="500"
+                data-endeasing="Power4.easeIn">
+                RUN WILD
+              </div>
+
+              <div class="tp-caption medium_light_white lfb ltt tp-resizeme"
+                data-x="right" data-hoffset="-100"
+                data-y="center" data-voffset="10"
+                data-speed="600"
+                data-start="900"
+                data-easing="Power4.easeOut"
+                data-splitin="none"
+                data-splitout="none"
+                data-elementdelay="0.01"
+                data-endelementdelay="0.1"
+                data-endspeed="500"
+                data-endeasing="Power4.easeIn">
+                Happiness is an accident of nature,<br/>
+                a beautiful and flawless aberration.<br/>
+                <span style="font-size:24px;font-weight:400;">&ndash; Pat Conroy</span>
+              </div>
+
+            </li>
+
+          </ul>
+        </div>
+      </section>
+      <!-- /REVOLUTION SLIDER -->
+
+      <!-- Welcome -->
+      <section>
+        <div class="container">
+
+          <div class="text-center">
+            <h1>Your World Of <span>Golf</span>.</h1>
+            <h2 class="col-sm-10 col-sm-offset-1 nomargin-bottom weight-400">Spend less time searching and more time playing! It's that simple!</h2>
+          </div>
+            <div class="row">
+
+  <div class="col-md-4">
+
+    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large box-icon-content">
+      <div class="box-icon-title">
+        <i class="fa">1</i>
+        <h2><span>Sign-Up</span></h2>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large box-icon-content">
+      <div class="box-icon-title">
+        <i class="fa">2</i>
+        <h2><span>Find A Course</span></h2>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large box-icon-content">
+      <div class="box-icon-title">
+        <i class="fa">3</i>
+        <h2><span>Book Your Tee Time</span></h2>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+        </div>
+      </section>
+      <!-- Welcome -->
+
+
+
+      <!-- Services -->
+      <section>
+        <div class="container">
+
+          <div class="row">
+
+            <div class="col-sm-6 col-md-4 col-lg-4">
+
+              <div class="box-icon box-icon-left">
+                <a class="box-icon-title" href="#">
+                  <i class="fa fa-tablet"></i>
+                  <h2>FULLY REPOSNIVE</h2>
+                </a>
+                <p class="text-muted">Lorem definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii.</p>
+              </div>
+
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-4">
+
+              <div class="box-icon box-icon-left">
+                <a class="box-icon-title" href="#">
+                  <i class="et-document"></i>
+                  <h2>RTL SUPPORT</h2>
+                </a>
+                <p class="text-muted">Lorem definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii.</p>
+              </div>
+
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-4">
+
+              <div class="box-icon box-icon-left">
+                <a class="box-icon-title" href="#">
+                  <i class="et-basket"></i>
+                  <h2>MOBILE COMPATIBILE</h2>
+                </a>
+                <p class="text-muted">Lorem definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii.</p>
+              </div>
+
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-4">
+
+              <div class="box-icon box-icon-left">
+                <a class="box-icon-title" href="#">
+                  <i class="et-briefcase"></i>
+                  <h2>CLEAN CODE</h2>
+                </a>
+                <p class="text-muted">Lorem definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii.</p>
+              </div>
+
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-4">
+
+              <div class="box-icon box-icon-left">
+                <a class="box-icon-title" href="#">
+                  <i class="et-megaphone"></i>
+                  <h2>PREMIUM SLIDERS</h2>
+                </a>
+                <p class="text-muted">Lorem definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii.</p>
+              </div>
+
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-4">
+
+              <div class="box-icon box-icon-left">
+                <a class="box-icon-title" href="#">
+                  <i class="et-flag"></i>
+                  <h2>SIMPLE TO USE</h2>
+                </a>
+                <p class="text-muted">Lorem definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii.</p>
+              </div>
+
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-4">
+
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-4">
+            
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-4">
+
+            </div>
+
           </div>
 
         </div>
- 
-</section>
+      </section>
+      <!-- /Services -->
 
-          
+      
+      <!-- Info -->
+      <section>
+      <div ng-app="app">       
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h4>Courses Nearby</h4>
+                <% @courses_five.each do |course| %>
+                       
+                <div class="box-icon box-icon box-icon-round box-icon-transparent box-icon-large ">
+                  <div class="box-icon-title">
+                  <i class="fa fa-flag"></i>
+                  <h4 class="list-group-item list-group-item-success"><a href="/courses/<%= course.id %>">Golf Course: <%= course.biz_name %></a></h4>
+                  </div>
+                    <p>Location: <%= course.e_address %> <%= course.e_city %>, <%= course.e_state %> <%= course.e_postal %></p>
+                </div>
+                <% end %> 
+              </div>
+                      
+           
 
-
-
-
-
-
-
+            <div class="col-md-6">
+              <h4>Map Location</h4>
+              
+              <div id="map" style="padding-top:760px;margin-top: 90px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>
 
   </div>
-</body>
 <script async defer 
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPnJdUCTaDoPlmksohRoP36LqmWpVI2b4&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPnJdUCTaDoPlmksohRoP36LqmWpVI2b4&callback=initMap" >
   </script>
+</body>

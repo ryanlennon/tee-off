@@ -1,3 +1,11 @@
+/* global angular */
+
+(function() {
+  angular.module("app").controller("coursesCtrl", function($scope) {
+
+  });
+})();
+
 var marker;
 
 function initMap() {
@@ -5,6 +13,7 @@ function initMap() {
     center: {lat: -34.397, lng: 150.644},
     zoom: 11
   });
+
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -26,7 +35,7 @@ function initMap() {
     });
   }
 }
-  
+
 
 function toggleBounce() {
   if (marker.getAnimation() !== null) {
@@ -35,4 +44,5 @@ function toggleBounce() {
     marker.setAnimation(google.maps.Animation.BOUNCE);
   }
 }
+
 
