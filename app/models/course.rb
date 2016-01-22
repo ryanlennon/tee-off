@@ -44,4 +44,9 @@ class Course < ActiveRecord::Base
     end
   end
 
+  def formatted_tee_time(tee_time)
+    tee_time.strftime("%m/%d/%Y %l:%M %p")
+  end
+
+
 end

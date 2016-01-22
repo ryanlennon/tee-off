@@ -8,7 +8,7 @@
 
   </div>
 </section>
-<div id="courseId"><%= @course.id %></div>
+<div id="courseId" style="display:none;"><%= @course.id %></div>
 <div ng-app="app">
   <div ng-controller="courseShow" ng-init="setupCourseShow()">
     <!-- -->
@@ -92,7 +92,7 @@
                   <%= form_tag "/teetimes", method: :post do %>
                     <td><a href="/teetimes/<%=@course.id%>"><%= index + 1 %></a>
                     </td>
-                    <td><%= tee_time_slot %><%= hidden_field_tag :tee_time_slot, tee_time_slot %>
+                    <td><%= @course.formatted_tee_time(tee_time_slot) %><%= hidden_field_tag :tee_time_slot, tee_time_slot %>
                     </td>
                     <td><em><%= @course.tee_time_slot_message(tee_time_slot) %></em>
                     </td>
