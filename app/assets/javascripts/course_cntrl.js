@@ -1,48 +1,74 @@
 /* global angular */
 
 (function() {
-  angular.module("app").controller("coursesCtrl", function($scope) {
+  angular.module("app").controller("coursesCtrl", function($scope, $http, $q) {
 
+    var marker;
+    var map;
+    var mapPromise = $q.defer();
+    var courses;
+    // var courses = Course.near("#{params[:address]}", 5);
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 37.8968, lng: -122.2624},
+        zoom: 11});
+      mapPromise.resolve();
+    }
+
+    function placeMarkers() {
+      var bounds = new google.maps.LatLngBounds(); //google bounds object, storage of lat lngs.
+      for (var i = 0; i < $scope.courses.length; i++) { //iterate through courses
+        var latlng = new google.maps.LatLng($scope.courses[i].latitude, $scope.courses[i].longitude); //make new latlng google object
+        bounds.extend(latlng); //add to bounds object
+        var marker = new google.maps.Marker({ //create new google marker
+          position: latlng,
+          map: map,
+          title: "Course"
+        });
+
+        marker.setMap(map); // add new google marker to map
+      } //end of loop
+      map.fitBounds(bounds); // fit the bounds of the map to best fit the pins
+    }
+
+    //function initAutocomplete() {
+      
+    //   var input = document.getElementById('pac-input');
+    //   var searchBox = new google.maps.places.SearchBox(input);
+    //   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+    //   // Bias the SearchBox results towards current map's viewport.
+    //   map.addListener('bounds_changed', function() {
+    //     searchBox.setBounds(map.getBounds());
+    //   });
+    //   searchBox.addListener('places_changed', function() {
+    // var places = searchBox.getPlaces();
+
+    // if (places.length == 0) {
+    //   return;
+    // }
+
+    // // Clear out the old markers.
+    // markers.forEach(function(marker) {
+    //   marker.setMap(null);
+    // });
+    // placeMarkers()
+    // }
+
+
+     
+    $scope.setup = function() {
+
+      $http.get('/api/v1/courses.json').then(function(response) {
+        initMap();
+        $scope.courses = response.data;
+       
+        placeMarkers();
+
+      });
+
+    };
   });
 })();
-
-var marker;
-
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 11
-  });
-
-
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-
-      map.setCenter(pos);
-
-      marker = new google.maps.Marker({
-        map: map,
-        draggable: true,
-        animation: google.maps.Animation.DROP,
-        position: pos,
-        title: 'Current location.'
-      });
-      marker.addListener('click', toggleBounce);
-    });
-  }
-}
-
-
-function toggleBounce() {
-  if (marker.getAnimation() !== null) {
-    marker.setAnimation(null);
-  } else {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-  }
-}
-
 

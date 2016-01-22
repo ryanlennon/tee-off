@@ -34,6 +34,7 @@
 		<!-- REVOLUTION SLIDER -->
 		<link href="/assets/plugins/slider.revolution/css/extralayers.css" rel="stylesheet" type="text/css" />
 		<link href="/assets/plugins/slider.revolution/css/settings.css" rel="stylesheet" type="text/css" />
+	
 
 	</head>
 
@@ -45,33 +46,9 @@
 		<!-- wrapper -->
 		<div id="wrapper">
 
-			<!-- 
-				AVAILABLE HEADER CLASSES
 
-				Default nav height: 96px
-				.header-md 		= 70px nav height
-				.header-sm 		= 60px nav height
-
-				.noborder 		= remove bottom border (only with transparent use)
-				.transparent	= transparent header
-				.translucent	= translucent header
-				.sticky			= sticky header
-				.static			= static header
-				.dark			= dark header
-				.bottom			= header on bottom
-				
-				shadow-before-1 = shadow 1 header top
-				shadow-after-1 	= shadow 1 header bottom
-				shadow-before-2 = shadow 2 header top
-				shadow-after-2 	= shadow 2 header bottom
-				shadow-before-3 = shadow 3 header top
-				shadow-after-3 	= shadow 3 header bottom
-
-				.clearfix		= required for mobile menu, do not remove!
-
-				Example Usage:  class="clearfix sticky header-sm transparent noborder"
-			-->
 			<div id="header" class="sticky transparent clearfix">
+
 
 				<!-- TOP NAV -->
 				<header id="topNav">
@@ -87,10 +64,10 @@
 
 							<!-- SEARCH -->
 							<li class="search">
-								<a href="javascript:;">
+								<a href="search">
 									<i class="fa fa-search"></i>
 								</a>
-								<div class="search-box" style="display: none;">
+								<div class="search-box">
 									<form action="page-search-result-1.html" method="get">
 										<div class="input-group">
 											<input type="text" name="src" placeholder="Search" class="form-control" />
@@ -101,6 +78,7 @@
 									</form>
 								</div> 
 							</li>
+							
 							<!-- /SEARCH -->
 
 						</ul>
@@ -108,10 +86,14 @@
 
 
 						<!-- Logo -->
-						<a class="logo pull-left" href="index.html">
-							<h2>TeeBox</h2>
-						</a>
-
+						 <div class=" logo pull-left box-icon box-icon-round box-icon-transparent box-icon-large">
+						<h4 style="color:#fff;"><i class="fa fa-flag" > TeeBox</i></h4>
+						</div>
+							<!--<div class="box-icon-title">
+				<i class="noborder fa fa-flag" style="background-color:#8ab933;color:#fff; "></i>
+				<h2 style="color:#fff;"> TeeBox </h2>
+			</div>
+				</div> -->
 						<!-- 
 							Top Nav 
 							
@@ -132,54 +114,19 @@
 									</li>
 								-->
 								<ul id="topMain" class="nav nav-pills nav-main">
-									<li class="dropdown active"><!-- HOME -->
+									<li><!-- HOME -->
 										<a href="/courses">
 											HOME
 										</a>
 									</li>
 
 									<li class="dropdown"><!-- PAGES -->
-										<a class="dropdown-toggle" href="#">
-											PAGES
+										<a href="">
+											COURSES
 										</a>
 									</li>
 
-									<li class="dropdown"><!-- FEATURES -->
-										<a class="dropdown-toggle" href="#">
-											FEATURES
-										</a>
-										<ul class="dropdown-menu">
-											<li class="dropdown">
-											</li>
-											<li class="dropdown">
-												<a class="dropdown-toggle" href="#">
-													<i class="et-hotairballoon"></i> HEADERS
-												</a>
-											</li>
-										</ul>
-									</li>
-
-
-									<li class="dropdown"><!-- BLOG -->
-										<a class="dropdown-toggle" href="#">
-											BLOG
-										</a>
-									</li>
-
-
-									<li class="dropdown"><!-- SHOP -->
-										<a class="dropdown-toggle" href="#">
-											SHOP
-										</a>
-										<ul class="dropdown-menu pull-right">
-											<li class="dropdown">
-												<a class="dropdown-toggle" href="#">
-													1 COLUMN
-												</a>
-											</li>	
-										</ul>
-									</li>
-
+									
 									<li class="dropdown"><!-- My Account -->
 										<a class="dropdown-toggle" href="#">
 											MY ACCOUNT

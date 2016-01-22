@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'teetimes' => 'tee_times#index'
+      get 'courses' => 'courses#index'
+      post '/teetimes' => 'tee_times#create'
     end
   end
 

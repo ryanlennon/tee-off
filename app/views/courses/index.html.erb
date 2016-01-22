@@ -1,35 +1,9 @@
 <body class="smoothscroll enable-animation">
+ <div ng-app="app" ng-controller="coursesCtrl" ng-init="setup()">
 
   <!-- REVOLUTION SLIDER -->
       <section id="slider" class="fullwidthbanner-container roundedcorners">
-        <!--
-          Navigation Styles:
-          
-            data-navigationStyle="" theme default navigation
-            
-            data-navigationStyle="preview1"
-            data-navigationStyle="preview2"
-            data-navigationStyle="preview3"
-            data-navigationStyle="preview4"
-            
-          Bottom Shadows
-            data-shadow="1"
-            data-shadow="2"
-            data-shadow="3"
-            
-          Slider Height (do not use on fullscreen mode)
-            data-height="300"
-            data-height="350"
-            data-height="400"
-            data-height="450"
-            data-height="500"
-            data-height="550"
-            data-height="600"
-            data-height="650"
-            data-height="700"
-            data-height="750"
-            data-height="800"
-        -->
+
         <div class="fullscreenbanner" data-navigationStyle="preview4">
           <ul class="hide">
 
@@ -53,7 +27,7 @@
                 data-endelementdelay="0.1"
                 data-endspeed="1000"
                 data-endeasing="Power4.easeIn" style="z-index: 10;">
-                <span class="weight-300">COURSES / SCORECARDS / PRICES / TEE TIMES</span>
+                <span class="weight-300">COURSES + PRICES + TEE TIMES</span>
               </div>
 
               <div class="tp-caption customin ltl tp-resizeme large_bold_white"
@@ -85,7 +59,6 @@
                 data-endelementdelay="0.1"
                 data-endspeed="1000"
                 data-endeasing="Power4.easeIn" style="z-index: 10; width: 750px; max-width: 750px; white-space: normal; text-align:center;">
-                Fabulas definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii propriae philosophia cu mea.
               </div>
 
               <div class="tp-caption customin ltl tp-resizeme"
@@ -128,7 +101,7 @@
                 data-endelementdelay="0.1"
                 data-endspeed="1000"
                 data-endeasing="Power4.easeIn" style="z-index: 10;">
-                <span class="weight-300">DEVELOPMENT / MARKETING / DESIGN / PHOTO</span>
+                <span class="weight-300"></span>
               </div>
 
               <div class="tp-caption customin ltl tp-resizeme large_bold_white"
@@ -160,7 +133,6 @@
                 data-endelementdelay="0.1"
                 data-endspeed="1000"
                 data-endeasing="Power4.easeIn" style="z-index: 10; width: 750px; max-width: 750px; white-space: normal; text-align:center;">
-                Fabulas definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii propriae philosophia cu mea.
               </div>
 
               <div class="tp-caption customin ltl tp-resizeme"
@@ -202,7 +174,7 @@
                 data-endelementdelay="0.1"
                 data-endspeed="500"
                 data-endeasing="Power4.easeIn">
-                RUN WILD
+               
               </div>
 
               <div class="tp-caption medium_light_white lfb ltt tp-resizeme"
@@ -217,9 +189,7 @@
                 data-endelementdelay="0.1"
                 data-endspeed="500"
                 data-endeasing="Power4.easeIn">
-                Happiness is an accident of nature,<br/>
-                a beautiful and flawless aberration.<br/>
-                <span style="font-size:24px;font-weight:400;">&ndash; Pat Conroy</span>
+                Welcome To Teebox
               </div>
 
             </li>
@@ -231,7 +201,7 @@
 
       <!-- Welcome -->
       <section>
-        <div class="container">
+        <div class="container" >
 
           <div class="text-center">
             <h1>Your World Of <span>Golf</span>.</h1>
@@ -275,133 +245,36 @@
 </div>
 
         </div>
-      </section>
+      </section >
       <!-- Welcome -->
-
-
-
-      <!-- Services -->
-      <section>
-        <div class="container">
-
-          <div class="row">
-
-            <div class="col-sm-6 col-md-4 col-lg-4">
-
-              <div class="box-icon box-icon-left">
-                <a class="box-icon-title" href="#">
-                  <i class="fa fa-tablet"></i>
-                  <h2>FULLY REPOSNIVE</h2>
-                </a>
-                <p class="text-muted">Lorem definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii.</p>
-              </div>
-
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-4">
-
-              <div class="box-icon box-icon-left">
-                <a class="box-icon-title" href="#">
-                  <i class="et-document"></i>
-                  <h2>RTL SUPPORT</h2>
-                </a>
-                <p class="text-muted">Lorem definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii.</p>
-              </div>
-
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-4">
-
-              <div class="box-icon box-icon-left">
-                <a class="box-icon-title" href="#">
-                  <i class="et-basket"></i>
-                  <h2>MOBILE COMPATIBILE</h2>
-                </a>
-                <p class="text-muted">Lorem definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii.</p>
-              </div>
-
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-4">
-
-              <div class="box-icon box-icon-left">
-                <a class="box-icon-title" href="#">
-                  <i class="et-briefcase"></i>
-                  <h2>CLEAN CODE</h2>
-                </a>
-                <p class="text-muted">Lorem definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii.</p>
-              </div>
-
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-4">
-
-              <div class="box-icon box-icon-left">
-                <a class="box-icon-title" href="#">
-                  <i class="et-megaphone"></i>
-                  <h2>PREMIUM SLIDERS</h2>
-                </a>
-                <p class="text-muted">Lorem definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii.</p>
-              </div>
-
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-4">
-
-              <div class="box-icon box-icon-left">
-                <a class="box-icon-title" href="#">
-                  <i class="et-flag"></i>
-                  <h2>SIMPLE TO USE</h2>
-                </a>
-                <p class="text-muted">Lorem definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii.</p>
-              </div>
-
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-4">
-
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-4">
-            
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-4">
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-      <!-- /Services -->
-
+<div class="divider divider-circle divider-color divider-center"><!-- divider -->
+  <i class="fa fa-flag"></i>
+</div>
       
       <!-- Info -->
       <section>
-      <div ng-app="app">       
+             
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-              <h4>Courses Nearby</h4>
-                <% @courses_five.each do |course| %>
-                       
-                <div class="box-icon box-icon box-icon-round box-icon-transparent box-icon-large ">
+              <h4 ng-click = "toggleCourses()">Courses Nearby</h4>
+               
+                <div class="box-icon box-icon box-icon-round box-icon-transparent box-icon-large " ng-repeat="course in courses">
                   <div class="box-icon-title">
-                  <i class="fa fa-flag"></i>
-                  <h4 class="list-group-item list-group-item-success"><a href="/courses/<%= course.id %>">Golf Course: <%= course.biz_name %></a></h4>
+                  <h4 class="list-group-item list-group-item-success"><i class="fa fa-flag"></i><a href="/courses/{{course.id}}"> Golf Course: {{course.name}}</a> <p>Location: {{course.fulladdress}}</p></h4>
+                  
                   </div>
-                    <p>Location: <%= course.e_address %> <%= course.e_city %>, <%= course.e_state %> <%= course.e_postal %></p>
+                    
                 </div>
-                <% end %> 
               </div>
                       
            
 
             <div class="col-md-6">
               <h4>Map Location</h4>
-              
-              <div id="map" style="padding-top:760px;margin-top: 90px"></div>
+
+              <div id="map" style="padding-top: 500px;margin-top: 10px"></div>
+           
             </div>
           </div>
         </div>
@@ -409,7 +282,8 @@
       </section>
 
   </div>
-<script async defer 
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPnJdUCTaDoPlmksohRoP36LqmWpVI2b4&callback=initMap" >
+<script 
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPnJdUCTaDoPlmksohRoP36LqmWpVI2b4" >
   </script>
+  
 </body>

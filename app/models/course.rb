@@ -5,6 +5,16 @@ class Course < ActiveRecord::Base
   has_many :comments
   has_many :images
 
+  geocoded_by :full_address
+  after_validation :geocode
+
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode  # auto-fetch address
+
+  def full_address
+    "#{e_address}, #{e_city}, #{e_state}"
+  end
+
   def tee_time_slots
     course_start_time = Time.parse(start_time)
     course_end_time = Time.parse(end_time)
