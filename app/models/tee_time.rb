@@ -5,3 +5,5 @@ class TeeTime < ActiveRecord::Base
   has_many :users, through: :reservations
 
 end
+
+

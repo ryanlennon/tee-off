@@ -1,16 +1,47 @@
-<h1>Booked!</h1>
-<% @tee_time.course_id %>
-<h3>Your tee time has been reserved for <%= @tee_time.start_time %></h3>
-<h3>at <%= @tee_time.course.biz_name %></h3>
-<h3>for <h2><%= @tee_time.price %></h2></h3>
-<h3>Number of guests: <%= @tee_time.num_of_guests %></h3>
-<%= link_to "Edit number of guests", "/teetimes/#{@tee_time.id}/edit", class: "btn btn-success" %>
-<div>
-<%= link_to "Book Another Tee Time?", "/courses/#{@tee_time.course_id}", class: "btn btn-success" %>
-</div>
-<div>
-<%= link_to "Back to Home", "/", class: "btn btn-success" %>
-</div>
+<section class="page-header page-header-lg parallax parallax-3" style="background-image:url('/assets/images/demo/1200x800/cheer.jpg')">
+  <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
+
+  <div class="container">
+
+    <h1>Tee Time Booked!</h1>
+    <span class="font-lato size-18 weight-300">Are you ready to play some golf?</span>
+
+  </div>
+</section>
+
+      <section>
+        <div class="container">
+        <div class="row">
+          
+          <!-- CHECKOUT FINAL MESSAGE -->
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <% @tee_time.course_id %>
+              <h3>Your tee time has been reserved for <%= Time.parse(@tee_time.start_time).strftime("%l:%M %p")%> on <%= Time.parse(@tee_time.start_time).strftime("%m/%d/%Y") %></h3>
+              <h3>at <%= @tee_time.course.biz_name %></h3>
+              <h3>for you and your <%= @tee_time.num_of_guests %> guests</h3>
+              <%= link_to "Edit number of guests", "/teetimes/#{@tee_time.id}/edit", class: "btn btn-success" %>
+              <div>
+              <%= link_to "Book Another Tee Time?", "/courses/#{@tee_time.course_id}", class: "btn btn-success" %>
+              </div>
+              <div>
+              <%= link_to "Back to Home", "/", class: "btn btn-success" %>
+              </div>
+
+
+              <hr />
+
+              <h4 style="color:#456a18;">
+                Thank you for using <i class="fa fa-flag"> TeeBox!</i><i class="fa fa-flag"></i>
+              </h4>
+            </div>
+          </div>
+          </div>
+          <!-- /CHECKOUT FINAL MESSAGE -->
+          
+        </div>
+      </section>
+
 
 
 

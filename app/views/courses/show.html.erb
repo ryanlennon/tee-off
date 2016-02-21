@@ -1,12 +1,12 @@
- <section class="page-header page-header-lg parallax parallax-3" style="background-image:url('/assets/images/demo/1200x800/showpageheader.jpg')">
+<section class="page-header page-header-lg parallax parallax-3" style="background-image:url('/assets/images/demo/1200x800/showpageheader2.jpg')">
   <div class="overlay light"><!-- dark overlay [1 to 9 opacity] --></div>
 
-  <div class="container">
+    <div class="container">
 
-    <h1><%= @course.biz_name %></h1>
-    <span class="font-lato size-18 weight-300"><%= @course.loc_county %><h5>County</h5></span>
+      <h1><%= @course.biz_name %></h1>
+      <span class="font-lato size-18 weight-300"><%= @course.loc_county %><h5>County</h5></span>
 
-  </div>
+    </div>
 </section>
 <div id="courseId" style="display:none;"><%= @course.id %></div>
 <div ng-app="app">
@@ -49,15 +49,14 @@
               <!-- /IMAGE -->
 
               <!-- ITEM DESC -->
-              <div class="col-lg-3 col-sm-3">
-              <h4>Weather for <%= @course.e_city %>, <%= @course.e_state %></h4>
-                <p><%= @forecast.html_safe %></p>
-              </div>
+
               <!-- /ITEM DESC -->
               <!-- LEFT -->
-              <div class="col-lg-3 col-md-3 " >
-                <div id="map"> </div>
+                <div class="col-lg-3 col-sm-3">
+                <h4>Weather for <%= @course.e_city %>, <%= @course.e_state %></h4>
+                <p><%= @forecast.html_safe %></p>
               </div>
+              
 
             </div>
 
@@ -81,7 +80,8 @@
                   <tr>
                     <th>Tee Time slot </th>
                     <th>Tee off time</th>
-                    <th class="hidden-xs">Availability</th>
+                    <th>Availability</th>
+                    <th>Price</th>
                     <th class="hidden-xs">Number of guests</th>
                     <th class="hidden-xs">Submit</th>
                   </tr>
@@ -89,75 +89,83 @@
                 <tbody>
                   <% @course.tee_time_slots.each_with_index do |tee_time_slot, index| %>
                   <tr>
-                  <%= form_tag "/teetimes", method: :post do %>
+                    <%= form_tag "/teetimes", method: :post do %>
                     <td><a href="/teetimes/<%=@course.id%>"><%= index + 1 %></a>
                     </td>
                     <td><%= @course.formatted_tee_time(tee_time_slot) %><%= hidden_field_tag :tee_time_slot, tee_time_slot %>
                     </td>
                     <td><em><%= @course.tee_time_slot_message(tee_time_slot) %></em>
                     </td>
-                    <td><%= hidden_field_tag :tee_time_slot, tee_time_slot %>
-                      <%= hidden_field_tag :course_id, @course.id %>
-                      <%= hidden_field_tag :user_id, current_user.id %>
-                      <% label_tag :num_of_guests %><%= text_field_tag :num_of_guests %>
-                    </td>
-                    <td>
-                      <% if @course.tee_time_slot_message(tee_time_slot) != "Closed" %>
+                    <td><%= label_tag :price, number_with_precision(40.0, precision:2) %> 
+                      <td><%= hidden_field_tag :tee_time_slot, tee_time_slot %>
+                        <%= hidden_field_tag :course_id, @course.id %>
+                        <%= hidden_field_tag :user_id, current_user.id %>
+                        <% label_tag :num_of_guests %><%= text_field_tag :num_of_guests %>
+                      </td>
+                      <td>
+                        <% if @course.tee_time_slot_message(tee_time_slot) != "Closed" %>
                         <%= submit_tag "Book Tee Time!"%>
-                      <%end%>
-                    </td>
-                    <% end %>
-                  </tr>
+                        <%end%>
+                      </td>
+                      <% end %>
+                    </tr>
                     <% end %>  
-                </tbody>
-              </table>
-            </div>
-
-                      <!-- SPECIFICATIONS -->
-            <div role="tabpanel" class="tab-pane fade" id="specs">
-              <div class="table-responsive">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>Course Type</th>
-                      <th><%= @course.c_type %></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Course Season</td>
-                      <td><%= @course.c_season %></td>
-                    </tr>
-                    <tr>
-                      <td>Guest Policy</td>
-                      <td><%= @course.guest_policy %></td>
-                    </tr>
-                    <tr>
-                      <td>Dress Code</td>
-                      <td><%= @course.dress_code %></td>
-                    </tr>
-                    <tr>
-                      <td>Green fees</td>
-                      <td><%= @course.green_fees %></td>
-                    </tr>
-                    <tr>
-                      <td>Weekend rates</td>
-                      <td><%= @course.weekend_rates %></td>
-                    </tr>
-                    <tr>
-                      <td>Advanced tee time reservations</td>
-                      <td><%= @course.adv_tee %></td>
-                    </tr>
                   </tbody>
                 </table>
               </div>
-            </div>  
+
+              <!-- SPECIFICATIONS -->
+              <div role="tabpanel" class="tab-pane fade" id="specs">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Course Type</th>
+                        <th><%= @course.c_type %></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Course Season</td>
+                        <td><%= @course.c_season %></td>
+                      </tr>
+                      <tr>
+                        <td>Guest Policy</td>
+                        <td><%= @course.guest_policy %></td>
+                      </tr>
+                      <tr>
+                        <td>Dress Code</td>
+                        <td><%= @course.dress_code %></td>
+                      </tr>
+                      <tr>
+                        <td>Green fees</td>
+                        <td><%= @course.green_fees %></td>
+                      </tr>
+                      <tr>
+                        <td>Weekend rates</td>
+                        <td><%= @course.weekend_rates %></td>
+                      </tr>
+                      <tr>
+                        <td>Advanced tee time reservations</td>
+                        <td><%= @course.adv_tee %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>  
+
+            </div>
+
 
           </div>
 
+
+          <div class="col-lg-3 col-md-3 " >
+                <div id="map"> </div>
           </div>
         </div>
-      </div>  
+
+      </div> 
 
     </div>
 
@@ -174,7 +182,7 @@
     map = new google.maps.Map(document.getElementById('map'), 
     {
       center: position,
-      zoom: 11
+      zoom: 10
     });
 
     var marker = new google.maps.Marker({ //create new google marker
