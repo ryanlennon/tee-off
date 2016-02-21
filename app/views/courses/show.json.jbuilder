@@ -1,0 +1,2 @@
+json.tee_times @tee_times
+json.available_tee_times @available_tee_times

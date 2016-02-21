@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223015935) do
+ActiveRecord::Schema.define(version: 20160119030956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,18 +25,43 @@ ActiveRecord::Schema.define(version: 20151223015935) do
   end
 
   create_table "courses", force: :cascade do |t|
-    t.string   "business_name"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "phone"
-    t.string   "course_type"
-    t.string   "course_holes"
-    t.string   "course_season"
-    t.string   "course_dress_code"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "biz_name"
+    t.string   "e_address"
+    t.string   "e_city"
+    t.string   "e_state"
+    t.string   "e_postal"
+    t.string   "e_zip_full"
+    t.string   "e_country"
+    t.string   "loc_county"
+    t.string   "loc_area_code"
+    t.string   "loc_FIPS"
+    t.string   "loc_MSA"
+    t.string   "loc_PMSA"
+    t.string   "loc_TZ"
+    t.string   "loc_DST"
+    t.string   "loc_LAT_centroid"
+    t.string   "loc_LAT_poly"
+    t.string   "loc_LONG_centroid"
+    t.string   "loc_LONG_poly"
+    t.string   "biz_phone"
+    t.string   "metal_spikes"
+    t.string   "play_five"
+    t.string   "c_holes"
+    t.string   "c_type"
+    t.string   "year_built"
+    t.string   "c_designer"
+    t.string   "c_season"
+    t.string   "guest_policy"
+    t.string   "dress_code"
+    t.string   "green_fees"
+    t.string   "weekend_rates"
+    t.string   "adv_tee"
+    t.string   "start_time"
+    t.string   "end_time"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "forecasts", force: :cascade do |t|

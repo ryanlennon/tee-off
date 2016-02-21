@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  
   get '/' => 'courses#index'
   get '/courses' => 'courses#index'
   get '/courses/new' => 'courses#new'
@@ -9,6 +10,33 @@ Rails.application.routes.draw do
   patch 'courses/:id' => 'courses#update'
   delete 'courses/:id' => 'courses#destroy'
   get '/courses/:id' => 'courses#show'
+
+  get '/forecasts' => 'forecasts#index'
+  get '/forecasts/new' => 'forecasts#new'
+  post '/forecasts' => 'forecasts#create'
+  get '/forecasts/:id/edit' => 'forecasts#edit'
+  patch '/forecasts/:id' => 'forecasts#update'
+  delete '/forecasts/:id' => 'forecasts#destroy'
+  get '/forecasts/:id' => 'forecasts#show'
+
+  get '/teetimes' => 'tee_times#index'
+  get '/teetimes/new' => 'tee_times#new'
+  post '/teetimes' => 'tee_times#create'
+  get '/teetimes/:id/edit' => 'tee_times#edit'
+  patch '/teetimes/:id' => 'tee_times#update'
+  delete '/teetimes/:id' => 'tee_times#destroy'
+  get 'teetimes/:id' => 'tee_times#show'
+
+  namespace :api do
+    namespace :v1 do
+      get 'teetimes' => 'tee_times#index'
+      get 'courses' => 'courses#index'
+      post '/teetimes' => 'tee_times#create'
+    end
+  end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

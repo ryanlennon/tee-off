@@ -1,0 +1,19 @@
+<section class="page-header page-header-lg parallax parallax-3" style="background-image:url('/assets/images/demo/1200x800/cheer.jpg')">
+  <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
+
+  <div class="container">
+
+    <h1>How many guests would you like to bring?</h1>
+
+   </div>
+</section>
+<section>
+  <%= form_tag "/teetimes/#{@tee_time.id}", method: :patch do %>
+  <div>
+    <%= label_tag :num_of_guests, "Edit number of guests" %>
+    <%= text_field_tag :num_of_guests, @tee_time.num_of_guests %> 
+    <%= submit_tag "Update Reservation" %>
+  </div>
+    
+  <% end %>
+</section>

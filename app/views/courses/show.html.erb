@@ -1,1 +1,247 @@
-show.html.erb
+<section class="page-header page-header-lg parallax parallax-3" style="background-image:url('/assets/images/demo/1200x800/showpageheader2.jpg')">
+  <div class="overlay light"><!-- dark overlay [1 to 9 opacity] --></div>
+
+    <div class="container">
+
+      <h1><%= @course.biz_name %></h1>
+      <span class="font-lato size-18 weight-300"><%= @course.loc_county %><h5>County</h5></span>
+
+    </div>
+</section>
+<div id="courseId" style="display:none;"><%= @course.id %></div>
+<div ng-app="app">
+  <div ng-controller="courseShow" ng-init="setupCourseShow()">
+    <!-- -->
+    <section>
+      <div class="container">
+
+        <div class="row">
+
+          <!-- RIGHT -->
+          <div class="col-lg-9 col-md-9 col-sm-9">
+
+            <div class="row">
+
+              <!-- IMAGE -->
+              <div class="col-lg-6 col-sm-6">
+
+                <div class="thumbnail relative margin-bottom-3" >
+
+                  <figure id="zoom-primary" class="zoom" data-mode="mouseover">
+
+                    <a class="lightbox bottom-right" href="/assets/images/demo/1200x800/<%= @image.image1 %>" data-plugin-options='{"type":"image"}'><i class="glyphicon glyphicon-search"></i></a>
+
+                    <img class="img-responsive" src="/assets/images/demo/1200x800/<%= @image.image1 %>" width="1200" height="1500" alt="Courses"/>
+                  </figure>
+
+                </div>
+                <!-- Thumbnails (required height:100px) -->
+                <div data-for="zoom-primary" class="zoom-more owl-carousel owl-padding-3 featured" data-plugin-options='{"singleItem": false, "autoPlay": false, "navigation": true, "pagination": false}'>
+                  <a class="thumbnail active" href="/assets/images/demo/1200x800/<%=@image.image2 %>">
+                    <img src="/assets/images/demo/1200x800/<%= @image.image2 %>"height="100" alt="" />
+                  </a>
+                  <a class="thumbnail active" href="/assets/images/demo/1200x800/<%=@image.image1 %>">
+                    <img src="/assets/images/demo/1200x800/<%= @image.image1 %>"height="100" alt="" />
+                  </a>
+                </div>
+                <!-- /Thumbnails -->
+              </div>
+              <!-- /IMAGE -->
+
+              <!-- ITEM DESC -->
+
+              <!-- /ITEM DESC -->
+              <!-- LEFT -->
+                <div class="col-lg-3 col-sm-3">
+                <h4>Weather for <%= @course.e_city %>, <%= @course.e_state %></h4>
+                <p><%= @forecast.html_safe %></p>
+              </div>
+              
+
+            </div>
+
+            <div class="divider divider-circle divider-color divider-center"><!-- divider -->
+              <i class="fa fa-flag"></i>
+            </div>
+
+            <ul id="myTab" class="nav nav-tabs nav-top-border margin-top-80" role="tablist">
+              <li role="presentation" class="active"><a href="#description" role="tab" data-toggle="tab">Tee Times</a></li>
+              <li role="presentation"><a href="#specs" role="tab" data-toggle="tab">Specifications</a></li>
+            </ul>
+
+
+            <div class="tab-content padding-top-20">
+              <!-- DESCRIPTION -->
+              <div role="tabpanel" class="tab-pane fade in active" id="description"> 
+               <!-- <div ui-calendar="uiConfig.calendar" ng-model="eventSources" id="calendar"></div> -->
+
+               <table class="table table-striped table-hover" id="sample_4">
+                <thead>
+                  <tr>
+                    <th>Tee Time slot </th>
+                    <th>Tee off time</th>
+                    <th>Availability</th>
+                    <th>Price</th>
+                    <th class="hidden-xs">Number of guests</th>
+                    <th class="hidden-xs">Submit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @course.tee_time_slots.each_with_index do |tee_time_slot, index| %>
+                  <tr>
+                    <%= form_tag "/teetimes", method: :post do %>
+                    <td><a href="/teetimes/<%=@course.id%>"><%= index + 1 %></a>
+                    </td>
+                    <td><%= @course.formatted_tee_time(tee_time_slot) %><%= hidden_field_tag :tee_time_slot, tee_time_slot %>
+                    </td>
+                    <td><em><%= @course.tee_time_slot_message(tee_time_slot) %></em>
+                    </td>
+                    <td><%= label_tag :price, number_with_precision(40.0, precision:2) %> 
+                      <td><%= hidden_field_tag :tee_time_slot, tee_time_slot %>
+                        <%= hidden_field_tag :course_id, @course.id %>
+                        <%= hidden_field_tag :user_id, current_user.id %>
+                        <% label_tag :num_of_guests %><%= text_field_tag :num_of_guests %>
+                      </td>
+                      <td>
+                        <% if @course.tee_time_slot_message(tee_time_slot) != "Closed" %>
+                        <%= submit_tag "Book Tee Time!"%>
+                        <%end%>
+                      </td>
+                      <% end %>
+                    </tr>
+                    <% end %>  
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- SPECIFICATIONS -->
+              <div role="tabpanel" class="tab-pane fade" id="specs">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Course Type</th>
+                        <th><%= @course.c_type %></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Course Season</td>
+                        <td><%= @course.c_season %></td>
+                      </tr>
+                      <tr>
+                        <td>Guest Policy</td>
+                        <td><%= @course.guest_policy %></td>
+                      </tr>
+                      <tr>
+                        <td>Dress Code</td>
+                        <td><%= @course.dress_code %></td>
+                      </tr>
+                      <tr>
+                        <td>Green fees</td>
+                        <td><%= @course.green_fees %></td>
+                      </tr>
+                      <tr>
+                        <td>Weekend rates</td>
+                        <td><%= @course.weekend_rates %></td>
+                      </tr>
+                      <tr>
+                        <td>Advanced tee time reservations</td>
+                        <td><%= @course.adv_tee %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>  
+
+            </div>
+
+
+          </div>
+
+
+          <div class="col-lg-3 col-md-3 " >
+                <div id="map"> </div>
+          </div>
+        </div>
+
+      </div> 
+
+    </div>
+
+  </div>
+</section>
+
+</div>
+</div>
+<!-- / -->
+
+<script type="text/javascript">
+  function initMap() {
+    var position = {lat: <%=@course.loc_LAT_poly%>, lng: <%=@course.loc_LONG_poly%>}
+    map = new google.maps.Map(document.getElementById('map'), 
+    {
+      center: position,
+      zoom: 10
+    });
+
+    var marker = new google.maps.Marker({ //create new google marker
+      position: position,
+      map: map,
+      title: "Course"
+    });
+  }
+</script>
+
+<script async defer 
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPnJdUCTaDoPlmksohRoP36LqmWpVI2b4&callback=initMap">
+</script>
+
+<!-- JAVASCRIPT FILES -->
+<script type="text/javascript">var plugin_path = '/assets/plugins/';</script>
+<script type="text/javascript" src="/assets/plugins/jquery/jquery-2.1.4.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/scripts.js"></script>
+
+<!-- PAGE LEVEL SCRIPTS -->
+<script type="text/javascript" src="/assets/js/view/demo.shop.js"></script>
+
+<!-- /wrapper -->
+
+<!-- JS DATATABLES -->
+<script type="text/javascript" src="/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/datatables/js/dataTables.tableTools.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/datatables/js/dataTables.colReorder.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/datatables/js/dataTables.scroller.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="/assets/plugins/select2/js/select2.full.min.js"></script>
+<script type="text/javascript">
+  function initTable4() {
+
+    var table = jQuery('#sample_4');
+
+    /* Fixed header extension: http://datatables.net/extensions/scroller/ */
+
+    var oTable = table.dataTable({
+      "dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // datatable layout without  horizobtal scroll
+      "scrollY": "300",
+      "deferRender": true,
+      "order": [
+      [0, 'asc']
+      ],
+      "lengthMenu": [
+      [5, 15, 20, -1],
+        [5, 15, 20, "All"] // change per page values here
+        ],
+      "pageLength": 10 // set the initial value            
+    });
+
+
+    var tableWrapper = jQuery('#sample_5_wrapper'); // datatable creates the table wrapper by adding with id {your_table_jd}_wrapper
+    tableWrapper.find('.dataTables_length select').select2(); // initialize select2 dropdown
+  }
+
+  // Table Init
+  initTable4();
+</script>
+
