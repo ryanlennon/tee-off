@@ -48,5 +48,4 @@ class Course < ActiveRecord::Base
     tee_time.strftime("%m/%d/%Y %l:%M %p")
   end
 
-
 end

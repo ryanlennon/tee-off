@@ -55,9 +55,7 @@
     // });
     // placeMarkers()
     // }
-
-
-     
+   
     $scope.setup = function() {
 
       $http.get('/api/v1/courses.json').then(function(response) {
