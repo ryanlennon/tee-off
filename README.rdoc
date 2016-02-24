@@ -1,28 +1,8 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ACLTC FINAL PROJECT
 
-Things you may want to cover:
+The official name of my final project is TeeBox and it is an app designed to find golf courses in close proximity to a provided location and allow the user to choose a course, see course details, current weather(and 5 day forecast), and choose and book an available tee time for that day.
 
-* Ruby version
+This project was a culmination of what I learned in 3 months of attending Anyone Can Learn to Code's programming bootcamp. I built this application from scratch using rails, ruby, angularjs, bootstrap, yahoo's weather api, and google maps api.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
