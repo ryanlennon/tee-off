@@ -32,7 +32,6 @@
           events: response.data.tee_times
         };
       });
-
     };
    
     $scope.alertEventOnClick = function(date, jsEvent, view) {
@@ -47,8 +46,6 @@
       $http.post('/api/v1/teetimes', teetime).then(function(response) {
         console.log(response);
       });
-      //$scope.teetimes.push(teetime);
-
     };
 
     window.$scope = $scope;
