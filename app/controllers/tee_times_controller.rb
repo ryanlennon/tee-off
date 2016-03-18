@@ -33,9 +33,7 @@ class TeeTimesController < ApplicationController
 
   def show
     @tee_time = TeeTime.find_by(id: params[:id])
-    # start_time = Course.find(2).start_time
-    #@tee_time = TeeTime.find_by(course_id: params[:course_id])
-    #@course = @tee_time.course
+    
 
   end
 
