@@ -4,9 +4,9 @@ class Api::V1::CoursesController < ApplicationController
     @courses = Course.near("San Diego", 50)
 
     # if params[:location].present?
-    #   @courses = Course.near(params[:location], params[:distance] || 100, order: :distance)
+    #   @courses = Course.near(params[:location], params[:distance] || 50, order: :distance)
     # else
-    #   @courses = Course.all
+    #   @courses = Course.near("San Diego", 50)
     # end
   end
 

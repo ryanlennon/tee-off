@@ -4,4 +4,5 @@ json.array! @courses.each do |course|
   json.latitude course.loc_LAT_poly
   json.longitude course.loc_LONG_poly
   json.name course.biz_name
+  json.city course.e_city
 end
